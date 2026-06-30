@@ -1473,11 +1473,11 @@ a {
   }
 
   .sac-portrait {
-    height: 29rem;
+    height: 19rem;
   }
 
   .sac-portrait__image {
-    width: 84%;
+    width: 72%;
   }
 
   .sac-portrait__caption {
@@ -1485,7 +1485,7 @@ a {
   }
 
   .sac-hero__wordmark {
-    font-size: clamp(4.2rem, 21vw, 7rem);
+    font-size: clamp(3.9rem, 16.5vw, 5.4rem);
     line-height: 0.82;
   }
 
