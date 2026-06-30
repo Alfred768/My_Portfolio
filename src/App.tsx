@@ -1,29 +1,36 @@
-import { CapabilitiesSection } from './components/sections/CapabilitiesSection'
-import { ContactSection } from './components/sections/ContactSection'
-import { ExperienceSection } from './components/sections/ExperienceSection'
-import { FeaturedWorkSection } from './components/sections/FeaturedWorkSection'
-import { HeroSection } from './components/sections/HeroSection'
-import { SkillsSection } from './components/sections/SkillsSection'
-import { WhyHireSection } from './components/sections/WhyHireSection'
-import { portfolio } from './data/portfolio'
+import { useEffect, useState } from 'react'
+import { PortfolioMainPage } from './components/sections/PortfolioMainPage'
+import { portfolioByLanguage } from './data/portfolio'
+import type { Language } from './types/portfolio'
 
 function App() {
+  const [language, setLanguage] = useState<Language>(() => {
+    if (typeof window === 'undefined') return 'en'
+
+    try {
+      return window.localStorage.getItem('portfolio-language') === 'zh' ? 'zh' : 'en'
+    } catch {
+      return 'en'
+    }
+  })
+
+  useEffect(() => {
+    document.documentElement.lang = language === 'zh' ? 'zh-CN' : 'en'
+
+    try {
+      window.localStorage.setItem('portfolio-language', language)
+    } catch {
+      // The portfolio remains usable when storage is unavailable.
+    }
+  }, [language])
+
   return (
-    <main className="min-h-screen bg-[#f7f4ee] px-4 py-6 text-slate-900 sm:px-6 sm:py-8">
-      <div className="mx-auto flex max-w-7xl flex-col gap-6">
-        <HeroSection profile={portfolio.profile} links={portfolio.primaryLinks} />
-        <CapabilitiesSection capabilities={portfolio.capabilities} />
-        <ExperienceSection experience={portfolio.experience} />
-        <WhyHireSection
-          profile={portfolio.profile}
-          proofPoints={portfolio.proofPoints}
-          education={portfolio.education}
-          resumeHref={portfolio.contact.resumeHref}
-        />
-        <FeaturedWorkSection items={portfolio.featuredWork} />
-        <SkillsSection skills={portfolio.skills} />
-        <ContactSection contact={portfolio.contact} />
-      </div>
+    <main className="min-h-screen text-[#191714]">
+      <PortfolioMainPage
+        content={portfolioByLanguage[language]}
+        language={language}
+        onLanguageChange={setLanguage}
+      />
     </main>
   )
 }
