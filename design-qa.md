@@ -1,74 +1,39 @@
-# Design QA
+# Design QA — Sac Editorial Portfolio
 
-## Comparison Setup
-
-- Source visual truth: `/Users/wugaoyi/Learning/求职/Portfolio/tmp/design-qa/source-editorial-dossier.png`
-- Implementation URL: `http://127.0.0.1:5173/`
-- Primary implementation screenshot: `/Users/wugaoyi/Learning/求职/Portfolio/tmp/design-qa/portfolio-desktop-final-v3.png`
-- Full-view comparison: `/Users/wugaoyi/Learning/求职/Portfolio/tmp/design-qa/desktop-side-by-side-final.png`
-- Focused research evidence: `/Users/wugaoyi/Learning/求职/Portfolio/tmp/design-qa/portfolio-research-final.png`
-- Mobile Chinese evidence: `/Users/wugaoyi/Learning/求职/Portfolio/tmp/design-qa/portfolio-mobile-zh.png`
-- Desktop viewport: 1280 × 720
-- Mobile viewport: 390 × 844
-- State: English default hero and research; Chinese mobile hero
+- Source visual truth: `/tmp/sac-ai-reference/editorial-manifesto/reference/01-hero.png` and `/tmp/sac-ai-reference/editorial-manifesto/reference/02-about.png`
+- Implementation: `http://127.0.0.1:5175/`
+- Desktop viewport: `1672 × 941`
+- Mobile viewport: `390 × 844`
+- State: English, initial hero; About anchor; mobile navigation open
+- Full-view comparison evidence: `tmp/qa/hero-comparison-pass1.png`, `tmp/qa/about-comparison.png`
+- Focused comparison evidence: `tmp/qa/hero-focused-comparison.png`
+- Responsive evidence: `tmp/qa/implementation-mobile-v2.png`
 
 ## Findings
 
-No actionable P0, P1, or P2 findings remain.
+- No actionable P0, P1, or P2 issues remain.
+- [P3] The source uses a high-contrast orange/black manga illustration, while the portfolio intentionally uses Gaoyi Wu's transparent photographic cutout. The replacement preserves the same right-heavy subject composition, oversized serif wordmark, cream paper field, orange accent, registration marks, and editorial rhythm while keeping the candidate recognizable.
+- [P3] The About section carries more evidence and education content than the source social-platform roster, so it extends beyond one viewport on shorter displays. This is an intentional content adaptation for recruiting rather than a structural drift.
 
-### Fonts and Typography
+## Required Fidelity Surfaces
 
-- The implementation uses Bodoni Moda for display typography and Inter / Noto Sans SC for body copy.
-- The large name, role, research titles, metrics, and small technical labels reproduce the selected editorial hierarchy.
-- English and Chinese headings wrap without clipping. Optical weight and spacing remain legible at desktop and mobile sizes.
-
-### Spacing and Layout Rhythm
-
-- The final desktop pass places identity, role, portrait, calls to action, and all four proof metrics inside the first viewport.
-- Thin rules, open paper space, and alternating research spreads reproduce the reference rhythm without copying its exact composition.
-- The mobile layout becomes a single reading column with no horizontal overflow.
-
-### Colors and Visual Tokens
-
-- Warm ivory paper, near-black ink, muted graphite, and restrained burnt orange closely match the selected direction.
-- The background uses a real generated paper texture asset instead of a CSS noise approximation.
-- Text and controls retain clear contrast and visible focus treatment.
-
-### Image Quality and Asset Fidelity
-
-- The implementation uses Gaoyi's real portrait and generated project-specific iSeal and WebWeaver editorial illustrations.
-- Research assets share the paper, ink, stippling, and orange spot-color treatment of the source.
-- The portrait uses a rectangular editorial crop instead of the source mock's cutout treatment. This is an intentional identity-preservation choice and does not reduce hierarchy or usability.
-
-### Copy and Content
-
-- The visible content is resume-backed and prioritizes AI Algorithm Engineer positioning.
-- iSeal, WebWeaver, Intellisys Lab, and DHL Express claims use verified metrics and real publication destinations.
-- English and Chinese content switch together and preserve the same hierarchy.
-
-### Interaction and Accessibility
-
-- Header navigation targets existing sections.
-- The language switch exposes selected state and persists locally.
-- Research methodology controls expose `aria-expanded` and reveal real secondary content.
-- Mobile navigation, reduced-motion behavior, keyboard focus, external links, and image fallback behavior are implemented.
-- Browser console review found no warnings or errors.
+- Fonts and typography: Playfair Display provides the high-contrast editorial serif; Inter and Noto Sans SC cover UI and bilingual copy. Display scale, tight tracking, small uppercase navigation, and mono metadata follow the source hierarchy without clipping.
+- Spacing and layout rhythm: Desktop hero and About retain the source's two-column composition, fixed header, left registration rail, thin rules, large negative space, and full-height sections. Mobile has no horizontal overflow.
+- Colors and visual tokens: Warm cream paper, near-black ink, muted rules, and restrained orange accents closely track the source palette.
+- Image quality and asset fidelity: The portrait is a real RGBA cutout with intact hair and clean transparent edges. It is rendered without stretching; its circular technical field and registration marks match the source art direction.
+- Copy and content: Source labels are replaced with resume-backed recruiting content, measurable outcomes, publications, experience, role targets, and direct contact paths.
 
 ## Patches Made During QA
 
-- Reduced hero height and tightened display typography so the proof strip appears above the fold.
-- Rebalanced hero spacing and metric density against the selected source.
-- Corrected research-image aspect ratios to preserve the complete generated diagrams.
-- Added minimum-width and wrap protections for editorial grid copy.
-- Shortened the visible mobile navigation label while preserving the localized accessible name.
-- Verified Chinese hero and research layouts at mobile width.
+- Reduced mobile portrait height from `29rem` to `19rem`.
+- Reduced mobile portrait width and wordmark scale so name, role, specialization, and summary appear in the opening viewport.
+- Confirmed the mobile menu exposes all five navigation links and changes to an expanded close state.
 
-## Focused Region Review
+## Verification
 
-The research section received a focused review because its display typography, diagram crop, metadata line, and multi-column spacing were too small to judge from the hero comparison. The final research screenshot shows the section heading, iSeal metadata, and generated illustration aligned to the same editorial system with no clipping or placeholder assets.
-
-## Follow-up Polish
-
-- P3: A professionally produced transparent portrait cutout could move the hero even closer to the source mock, but the current real-photo crop is sharper and safer for identity fidelity.
+- Desktop console errors/warnings: none.
+- Mobile console errors/warnings: none.
+- Mobile horizontal overflow: none.
+- Focused interaction: mobile navigation opens and exposes About, Research, Experience, Projects, and Contact.
 
 final result: passed
