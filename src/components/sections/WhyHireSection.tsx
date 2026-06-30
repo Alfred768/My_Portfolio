@@ -33,8 +33,8 @@ export function WhyHireSection({
         />
         <div className="grid gap-4 sm:grid-cols-3">
           {proofPoints.map((point) => (
-            <div key={point} className="rounded-[24px] bg-white px-5 py-5 shadow-[0_18px_48px_rgba(15,23,42,0.06)]">
-              <p className="text-sm leading-7 text-slate-700">{point}</p>
+            <div key={point.title} className="rounded-[24px] bg-white px-5 py-5 shadow-[0_18px_48px_rgba(15,23,42,0.06)]">
+              <p className="text-sm leading-7 text-slate-700">{point.detail}</p>
             </div>
           ))}
         </div>
