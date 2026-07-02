@@ -18,7 +18,7 @@ test('renders the recruiter-first identity and primary actions', () => {
   expect(screen.getByText('LLM Security × Multi-Agent Systems × Applied ML')).toBeInTheDocument()
   expect(screen.getByRole('img', { name: 'Portrait of Gaoyi Wu' })).toHaveAttribute(
     'src',
-    '/assets/gaoyi-wu-cutout.png',
+    '/assets/gaoyi-wu-portrait-studio.jpg',
   )
   expect(screen.getByRole('link', { name: 'View Resume' })).toHaveAttribute(
     'href',

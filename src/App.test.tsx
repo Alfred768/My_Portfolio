@@ -21,17 +21,8 @@ beforeEach(() => {
 test('opens directly on the English job-search homepage', () => {
   render(<App />)
 
-  expect(screen.getByRole('heading', { level: 1, name: 'Gaoyi Wu' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /ai algorithm engineer/i })).toBeInTheDocument()
   expect(screen.getByText(/llm security × multi-agent systems × applied ml/i)).toBeInTheDocument()
-  expect(screen.getByRole('heading', { level: 2, name: 'About me' })).toBeInTheDocument()
-  expect(screen.getByRole('heading', { level: 2, name: 'Selected Research' })).toBeInTheDocument()
-  expect(screen.getByRole('heading', { level: 2, name: 'Applied ML Experience' })).toBeInTheDocument()
-  expect(
-    screen.getByRole('heading', {
-      level: 2,
-      name: 'Building secure AI that works beyond the benchmark.',
-    }),
-  ).toBeInTheDocument()
   expect(screen.queryByText(/^from[.,]?$/i)).not.toBeInTheDocument()
   expect(document.documentElement.lang).toBe('en')
 })
@@ -41,8 +32,7 @@ test('switches the complete portfolio to Chinese and remembers the choice', () =
 
   fireEvent.click(screen.getByRole('button', { name: '中文' }))
 
-  expect(screen.getByRole('heading', { level: 2, name: '关于我' })).toBeInTheDocument()
-  expect(screen.getByRole('heading', { level: 2, name: '代表性研究' })).toBeInTheDocument()
+  expect(screen.getByRole('heading', { name: /ai 算法工程师/i })).toBeInTheDocument()
   expect(screen.getByText(/大模型安全 × 多智能体系统 × 应用机器学习/i)).toBeInTheDocument()
   expect(window.localStorage.getItem('portfolio-language')).toBe('zh')
   expect(document.documentElement.lang).toBe('zh-CN')

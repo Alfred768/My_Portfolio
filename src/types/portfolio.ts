@@ -134,10 +134,8 @@ export type PortfolioData = {
 export type Language = 'en' | 'zh'
 
 export type LocalizedNavigation = {
-  about: string
   research: string
   experience: string
-  projects: string
   skills: string
   education: string
   contact: string

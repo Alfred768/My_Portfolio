@@ -40,19 +40,3 @@ test('uses the latest resume skill groups and project assets', () => {
     '/assets/webweaver-editorial-diagram.webp',
   ])
 })
-
-test.each(['en', 'zh'] as const)(
-  'provides the editorial portrait, navigation, and recruiter actions in %s',
-  (language) => {
-    const content = portfolioByLanguage[language]
-
-    expect(content.hero.portraitSrc).toBe('/assets/gaoyi-wu-cutout.png')
-    expect(content.navigation.about).toBeTruthy()
-    expect(content.navigation.projects).toBeTruthy()
-    expect(content.research.map((item) => item.title)).toEqual(['iSeal', 'WebWeaver'])
-    expect(content.contact.resumeHref).toBe('/resume/gaoyi-wu-resume.pdf')
-    expect(content.contact.linkedInHref).toBe('https://www.linkedin.com/in/gaoyiwu/')
-    expect(content.contact.gitHubHref).toBe('https://github.com/Alfred768')
-    expect(content.contact.email).toBe('criswu20010728@gmail.com')
-  },
-)

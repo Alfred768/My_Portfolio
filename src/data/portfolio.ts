@@ -290,10 +290,8 @@ export const portfolio: PortfolioData = {
 export const portfolioByLanguage: Record<Language, PortfolioContent> = {
   en: {
     navigation: {
-      about: 'About',
       research: 'Research',
       experience: 'Experience',
-      projects: 'Projects',
       skills: 'Skills',
       education: 'Education',
       contact: 'Contact',
@@ -309,7 +307,7 @@ export const portfolioByLanguage: Record<Language, PortfolioContent> = {
         'I build secure, measurable AI systems—from research-grade algorithms to production ML pipelines that hold up under real-world constraints.',
       location: 'Hoboken, New Jersey',
       availability: 'Open to AI Algorithm & Applied AI / ML roles',
-      portraitSrc: '/assets/gaoyi-wu-cutout.png',
+      portraitSrc: '/assets/gaoyi-wu-portrait-studio.jpg',
       portraitAlt: 'Portrait of Gaoyi Wu',
       resumeLabel: 'View Resume',
       contactLabel: 'Contact Me',
@@ -468,10 +466,8 @@ export const portfolioByLanguage: Record<Language, PortfolioContent> = {
   },
   zh: {
     navigation: {
-      about: '关于',
       research: '研究',
       experience: '经历',
-      projects: '项目',
       skills: '技能',
       education: '教育',
       contact: '联系',
@@ -487,7 +483,7 @@ export const portfolioByLanguage: Record<Language, PortfolioContent> = {
         '我专注于构建安全、可衡量的 AI 系统：从研究级算法到能够应对真实约束的生产级机器学习管线。',
       location: '美国新泽西州霍博肯',
       availability: '求职方向：AI 算法 / 应用 AI 与机器学习工程',
-      portraitSrc: '/assets/gaoyi-wu-cutout.png',
+      portraitSrc: '/assets/gaoyi-wu-portrait-studio.jpg',
       portraitAlt: '吴高艺个人照片',
       resumeLabel: '查看简历',
       contactLabel: '联系我',
