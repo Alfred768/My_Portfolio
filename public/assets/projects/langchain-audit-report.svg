@@ -1,0 +1,89 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">LangChain audit evaluation report</title>
+  <desc id="desc">A light audit report showing the multi-agent review flow, BERT evaluation results, and auditor correction loop.</desc>
+  <defs>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#253047" flood-opacity=".16"/>
+    </filter>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#f7f8fb"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="#dfe5f3"/>
+  <circle cx="104" cy="76" r="74" fill="#f4cecf"/>
+  <circle cx="1124" cy="692" r="104" fill="#c7d7f5"/>
+  <g filter="url(#shadow)">
+    <rect x="70" y="48" width="1060" height="664" rx="18" fill="url(#paper)"/>
+    <rect x="70" y="48" width="1060" height="58" rx="18" fill="#172033"/>
+    <rect x="70" y="88" width="1060" height="18" fill="#172033"/>
+  </g>
+  <circle cx="100" cy="77" r="7" fill="#ef6b6b"/>
+  <circle cx="124" cy="77" r="7" fill="#f2c65c"/>
+  <circle cx="148" cy="77" r="7" fill="#58bd7b"/>
+  <text x="180" y="84" fill="#ffffff" font-family="Arial, sans-serif" font-size="17" font-weight="700">AUDIT REVIEW / REPORT 024</text>
+  <rect x="968" y="64" width="130" height="28" rx="14" fill="#e9f7ef"/>
+  <circle cx="989" cy="78" r="5" fill="#42a568"/>
+  <text x="1044" y="82" fill="#237447" font-family="Arial, sans-serif" font-size="11" text-anchor="middle" font-weight="700">READY FOR REVIEW</text>
+
+  <rect x="102" y="138" width="250" height="542" rx="12" fill="#f0f3f9"/>
+  <text x="130" y="176" fill="#717b90" font-family="Arial, sans-serif" font-size="11" font-weight="700">AUDIT WORKFLOW</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="122" y="204" width="210" height="70" rx="10" fill="#ffffff" stroke="#dbe0eb"/>
+    <circle cx="154" cy="239" r="17" fill="#dbe7ff"/>
+    <text x="154" y="244" fill="#315aa8" font-size="13" text-anchor="middle" font-weight="700">01</text>
+    <text x="184" y="235" fill="#222a3d" font-size="13" font-weight="700">Evidence agent</text>
+    <text x="184" y="254" fill="#7a8498" font-size="10">Retrieves source evidence</text>
+    <path d="M227 274v18" stroke="#c2c9d8" stroke-width="2"/>
+    <rect x="122" y="292" width="210" height="70" rx="10" fill="#ffffff" stroke="#dbe0eb"/>
+    <circle cx="154" cy="327" r="17" fill="#fbe6cf"/>
+    <text x="154" y="332" fill="#a25b21" font-size="13" text-anchor="middle" font-weight="700">02</text>
+    <text x="184" y="323" fill="#222a3d" font-size="13" font-weight="700">Control agent</text>
+    <text x="184" y="342" fill="#7a8498" font-size="10">Tests policy controls</text>
+    <path d="M227 362v18" stroke="#c2c9d8" stroke-width="2"/>
+    <rect x="122" y="380" width="210" height="70" rx="10" fill="#ffffff" stroke="#dbe0eb"/>
+    <circle cx="154" cy="415" r="17" fill="#d9f1e2"/>
+    <text x="154" y="420" fill="#2d7b4d" font-size="13" text-anchor="middle" font-weight="700">03</text>
+    <text x="184" y="411" fill="#222a3d" font-size="13" font-weight="700">Report agent</text>
+    <text x="184" y="430" fill="#7a8498" font-size="10">Synthesizes findings</text>
+    <rect x="122" y="488" width="210" height="150" rx="12" fill="#182238"/>
+    <text x="146" y="522" fill="#aeb9ce" font-size="10" font-weight="700">CORRECTION LOOP</text>
+    <path d="M166 568a43 43 0 1 1 25 39" fill="none" stroke="#f07878" stroke-width="10" stroke-linecap="round"/>
+    <path d="M191 607l-3-18 17 7z" fill="#f07878"/>
+    <text x="228" y="559" fill="#ffffff" font-size="12" font-weight="700">Auditor feedback</text>
+    <text x="228" y="580" fill="#aeb9ce" font-size="10">updates references</text>
+    <text x="228" y="598" fill="#aeb9ce" font-size="10">and the next cycle</text>
+  </g>
+
+  <text x="392" y="164" fill="#20283a" font-family="Arial, sans-serif" font-size="25" font-weight="700">Evaluation summary</text>
+  <text x="392" y="190" fill="#778196" font-family="Arial, sans-serif" font-size="12">BERT embedding benchmark against expert-annotated audit reports</text>
+
+  <rect x="392" y="222" width="326" height="188" rx="14" fill="#fff" stroke="#dfe3ec"/>
+  <text x="418" y="256" fill="#778196" font-family="Arial, sans-serif" font-size="11" font-weight="700">HUMAN ALIGNMENT</text>
+  <text x="418" y="320" fill="#1f2940" font-family="Arial, sans-serif" font-size="56" font-weight="700">85%</text>
+  <rect x="418" y="344" width="274" height="12" rx="6" fill="#e9edf4"/>
+  <rect x="418" y="344" width="233" height="12" rx="6" fill="#5a7fcb"/>
+  <text x="418" y="382" fill="#778196" font-family="Arial, sans-serif" font-size="11">200 expert-annotated report pairs</text>
+
+  <rect x="742" y="222" width="328" height="188" rx="14" fill="#fff" stroke="#dfe3ec"/>
+  <text x="768" y="256" fill="#778196" font-family="Arial, sans-serif" font-size="11" font-weight="700">BASELINE COMPARISON</text>
+  <text x="768" y="292" fill="#2a3347" font-family="Arial, sans-serif" font-size="12">BERT embedding</text>
+  <rect x="768" y="308" width="250" height="10" rx="5" fill="#e9edf4"/>
+  <rect x="768" y="308" width="213" height="10" rx="5" fill="#5a7fcb"/>
+  <text x="1042" y="318" fill="#315aa8" font-family="Arial, sans-serif" font-size="12" text-anchor="end" font-weight="700">85%</text>
+  <text x="768" y="351" fill="#2a3347" font-family="Arial, sans-serif" font-size="12">Keyword overlap</text>
+  <rect x="768" y="367" width="250" height="10" rx="5" fill="#e9edf4"/>
+  <rect x="768" y="367" width="153" height="10" rx="5" fill="#f07878"/>
+  <text x="1042" y="377" fill="#b44f57" font-family="Arial, sans-serif" font-size="12" text-anchor="end" font-weight="700">61%</text>
+
+  <rect x="392" y="438" width="678" height="200" rx="14" fill="#fff" stroke="#dfe3ec"/>
+  <text x="418" y="474" fill="#20283a" font-family="Arial, sans-serif" font-size="16" font-weight="700">Completion time</text>
+  <text x="418" y="504" fill="#778196" font-family="Arial, sans-serif" font-size="11">Manual review</text>
+  <rect x="418" y="520" width="588" height="16" rx="8" fill="#edf0f5"/>
+  <rect x="418" y="520" width="548" height="16" rx="8" fill="#f3b8bc"/>
+  <text x="1018" y="533" fill="#963b44" font-family="Arial, sans-serif" font-size="12" text-anchor="end" font-weight="700">~45 min</text>
+  <text x="418" y="570" fill="#778196" font-family="Arial, sans-serif" font-size="11">Multi-agent workflow</text>
+  <rect x="418" y="586" width="588" height="16" rx="8" fill="#edf0f5"/>
+  <rect x="418" y="586" width="104" height="16" rx="8" fill="#67b985"/>
+  <text x="1018" y="599" fill="#237447" font-family="Arial, sans-serif" font-size="12" text-anchor="end" font-weight="700">~8 min</text>
+</svg>

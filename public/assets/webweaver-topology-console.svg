@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">WebWeaver topology inference laboratory</title>
+  <desc id="desc">A technical interface reconstructing a hidden multi-agent communication graph from one compromised agent.</desc>
+  <defs>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#d8dedf" stroke-width="1"/></pattern>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#263138" flood-opacity=".12"/></filter>
+  </defs>
+  <rect width="1200" height="760" fill="#f2f0e9"/>
+  <rect x="28" y="26" width="1144" height="708" rx="18" fill="#fbfbf8" filter="url(#shadow)"/>
+  <rect x="28" y="26" width="1144" height="58" rx="18" fill="#202b2f"/>
+  <text x="60" y="63" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="700">WEBWEAVER / TOPOLOGY INFERENCE LAB</text>
+  <rect x="944" y="42" width="198" height="27" rx="7" fill="#2f3d42"/><circle cx="964" cy="55" r="5" fill="#ff775f"/><text x="978" y="60" fill="#dce4e5" font-family="Arial, sans-serif" font-size="11">1 COMPROMISED AGENT</text>
+
+  <rect x="52" y="108" width="822" height="484" rx="10" fill="url(#grid)" stroke="#d3d9da"/>
+  <text x="76" y="140" fill="#334147" font-family="Arial, sans-serif" font-size="13" font-weight="700">Reconstructed communication graph</text>
+  <text x="76" y="162" fill="#829095" font-family="Arial, sans-serif" font-size="10">Observed context traces + masked diffusion recovery</text>
+  <g stroke="#96a4a7" stroke-width="2" fill="none">
+    <path d="M202 286L332 206L484 265L638 194L758 304L654 432L486 492L334 421L202 286"/>
+    <path d="M332 206L334 421M484 265L486 492M638 194L654 432M202 286L484 265M334 421L654 432M484 265L654 432"/>
+  </g>
+  <g stroke="#f09c54" stroke-width="4" stroke-dasharray="9 8" fill="none">
+    <path d="M202 286L638 194M332 206L758 304M486 492L758 304"/>
+  </g>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <circle cx="202" cy="286" r="34" fill="#fff1ed" stroke="#ef6d54" stroke-width="3"/><text x="202" y="282" fill="#b43f2c" font-size="11" font-weight="700">AGENT 01</text><text x="202" y="300" fill="#d45b44" font-size="9">compromised</text>
+    <circle cx="332" cy="206" r="30" fill="#eef4f3" stroke="#75908f" stroke-width="2"/><text x="332" y="210" fill="#3b5050" font-size="10">A02</text>
+    <circle cx="484" cy="265" r="30" fill="#eef4f3" stroke="#75908f" stroke-width="2"/><text x="484" y="269" fill="#3b5050" font-size="10">A03</text>
+    <circle cx="638" cy="194" r="30" fill="#eef4f3" stroke="#75908f" stroke-width="2"/><text x="638" y="198" fill="#3b5050" font-size="10">A04</text>
+    <circle cx="758" cy="304" r="30" fill="#eef4f3" stroke="#75908f" stroke-width="2"/><text x="758" y="308" fill="#3b5050" font-size="10">A05</text>
+    <circle cx="654" cy="432" r="30" fill="#eef4f3" stroke="#75908f" stroke-width="2"/><text x="654" y="436" fill="#3b5050" font-size="10">A06</text>
+    <circle cx="486" cy="492" r="30" fill="#eef4f3" stroke="#75908f" stroke-width="2"/><text x="486" y="496" fill="#3b5050" font-size="10">A07</text>
+    <circle cx="334" cy="421" r="30" fill="#eef4f3" stroke="#75908f" stroke-width="2"/><text x="334" y="425" fill="#3b5050" font-size="10">A08</text>
+  </g>
+  <g font-family="Arial, sans-serif">
+    <rect x="76" y="523" width="245" height="44" rx="8" fill="#fff" stroke="#d3d9da"/><line x1="94" y1="545" x2="133" y2="545" stroke="#96a4a7" stroke-width="2"/><text x="147" y="549" fill="#5e6c70" font-size="10">observed edge</text>
+    <rect x="334" y="523" width="245" height="44" rx="8" fill="#fff" stroke="#d3d9da"/><line x1="352" y1="545" x2="391" y2="545" stroke="#f09c54" stroke-width="4" stroke-dasharray="8 6"/><text x="405" y="549" fill="#5e6c70" font-size="10">inferred edge</text>
+  </g>
+
+  <rect x="898" y="108" width="250" height="484" rx="10" fill="#fff" stroke="#d3d9da"/>
+  <text x="922" y="142" fill="#334147" font-family="Arial, sans-serif" font-size="13" font-weight="700">Inference run</text>
+  <text x="922" y="181" fill="#829095" font-family="Arial, sans-serif" font-size="9" font-weight="700">GRAPH RECOVERY</text>
+  <text x="922" y="226" fill="#25353a" font-family="Arial, sans-serif" font-size="30" font-weight="700">92.4%</text>
+  <rect x="922" y="242" width="202" height="9" rx="5" fill="#e8ecec"/><rect x="922" y="242" width="187" height="9" rx="5" fill="#ec8d48"/>
+  <text x="922" y="288" fill="#829095" font-family="Arial, sans-serif" font-size="9" font-weight="700">RECOVERY METHOD</text>
+  <rect x="922" y="304" width="202" height="50" rx="8" fill="#f4f6f5"/><text x="938" y="326" fill="#334147" font-family="Arial, sans-serif" font-size="11" font-weight="700">Masked diffusion</text><text x="938" y="343" fill="#829095" font-family="Arial, sans-serif" font-size="9">jailbreak-free path</text>
+  <text x="922" y="391" fill="#829095" font-family="Arial, sans-serif" font-size="9" font-weight="700">EVIDENCE</text>
+  <rect x="922" y="407" width="202" height="42" rx="8" fill="#f4f6f5"/><circle cx="940" cy="428" r="5" fill="#5aa886"/><text x="954" y="432" fill="#46565a" font-family="Arial, sans-serif" font-size="10">18 context traces</text>
+  <rect x="922" y="459" width="202" height="42" rx="8" fill="#f4f6f5"/><circle cx="940" cy="480" r="5" fill="#5aa886"/><text x="954" y="484" fill="#46565a" font-family="Arial, sans-serif" font-size="10">11 recovered edges</text>
+  <rect x="922" y="511" width="202" height="42" rx="8" fill="#fff1ed"/><circle cx="940" cy="532" r="5" fill="#ef6d54"/><text x="954" y="536" fill="#8f4436" font-family="Arial, sans-serif" font-size="10">identity hidden</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="52" y="614" width="348" height="92" rx="10" fill="#25353a"/>
+    <text x="76" y="644" fill="#9fb0b4" font-size="9" font-weight="700">TOPOLOGY ACCURACY</text><text x="76" y="682" fill="#fff" font-size="27" font-weight="700">+60%</text><text x="170" y="680" fill="#aebdc0" font-size="10">vs. SOTA baseline</text>
+    <rect x="416" y="614" width="348" height="92" rx="10" fill="#eef3f2" stroke="#d3d9da"/>
+    <text x="440" y="644" fill="#718084" font-size="9" font-weight="700">DEFENSE STATUS</text><circle cx="451" cy="674" r="7" fill="#5aa886"/><text x="468" y="679" fill="#334147" font-size="12" font-weight="700">Anti-jailbreak active</text>
+    <rect x="780" y="614" width="368" height="92" rx="10" fill="#fff3e9" stroke="#edc5a4"/>
+    <text x="804" y="644" fill="#a46a3b" font-size="9" font-weight="700">ATTACK SURFACE</text><text x="804" y="680" fill="#6f4125" font-size="12" font-weight="700">One arbitrary agent context</text>
+  </g>
+</svg>
