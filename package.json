@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "personalize": "python3 scripts/personalize_clone.py",
+    "predev": "npm run personalize",
     "dev": "vite",
+    "prebuild": "npm run personalize",
     "build": "tsc -b && vite build",
     "preview": "vite preview",
     "test": "vitest"

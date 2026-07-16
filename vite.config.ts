@@ -1,7 +1,20 @@
+import { resolve } from 'node:path'
 import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  appType: 'mpa',
+  server: {
+    host: true,
+    port: 5176,
+    strictPort: true,
+  },
+  build: {
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        xclaw: resolve(__dirname, 'xclaw/index.html'),
+        iseal: resolve(__dirname, 'iseal/index.html'),
+      },
+    },
+  },
 })

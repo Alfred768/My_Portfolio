@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 350" role="img" aria-labelledby="title desc">
+  <title id="title">Gaoyi Wu signature</title>
+  <desc id="desc">A handwritten Gaoyi Wu signature in black ink.</desc>
+  <style>
+    .signature { font-family: 'Chalkboard SE', 'Bradley Hand', 'Segoe Print', cursive; font-size: 177px; font-style: italic; fill: #101317; stroke: #101317; stroke-width: .8px; paint-order: stroke; }
+  </style>
+  <text class="signature" x="31" y="236" transform="rotate(-4 450 175)">Gaoyi Wu</text>
+  <path d="M52 275C247 302 570 300 852 257" fill="none" stroke="#101317" stroke-width="7" stroke-linecap="round" opacity=".9"/>
+</svg>

@@ -1,4 +1,8 @@
-# Design QA — Sac Editorial Portfolio
+# Design QA — Xiaoyang Hu portfolio adaptation
+
+> Historical note: the prior Sac Editorial Portfolio QA record is retained below for continuity; the active validation for this task starts at **Xiaoyang Hu portfolio adaptation**.
+
+## Prior QA record — Sac Editorial Portfolio
 
 - Source visual truth: `/tmp/sac-ai-reference/editorial-manifesto/reference/01-hero.png` and `/tmp/sac-ai-reference/editorial-manifesto/reference/02-about.png`
 - Implementation: `http://127.0.0.1:5175/`
@@ -9,31 +13,45 @@
 - Focused comparison evidence: `tmp/qa/hero-focused-comparison.png`
 - Responsive evidence: `tmp/qa/implementation-mobile-v2.png`
 
+- No actionable P0, P1, or P2 issues remained.
+- [P3] The source used a high-contrast orange/black manga illustration, while that portfolio intentionally used Gaoyi Wu's transparent photographic cutout.
+- [P3] The About section carried more recruiting evidence than the source social-platform roster.
+
+---
+
+## Evidence
+
+- Source (desktop, top-of-page idle state): `.codex-artifacts/xiaoyanghu-check/source-desktop-current.png`
+- Implementation (desktop, same state): `.codex-artifacts/xiaoyanghu-check/local-desktop-current.png`
+- Side-by-side comparison: `.codex-artifacts/xiaoyanghu-check/desktop-comparison-current.png`
+- Source and implementation mobile captures: `.codex-artifacts/xiaoyanghu-check/source-home-mobile.png` and `.codex-artifacts/xiaoyanghu-check/local-home-mobile.png`
+- Route captures: `.codex-artifacts/xiaoyanghu-check/local-akool-desktop.png` and `.codex-artifacts/xiaoyanghu-check/local-siemens-desktop.png`
+
+## Scope and states checked
+
+- Desktop homepage at 1440 px: hero, sidebar, project heading, first project card, typography, borders, spacing, source visual assets, and custom XClaw artwork.
+- Mobile layout at approximately 390 px: stacked hero, compact navigation, project heading, and desktop-only notice.
+- Project routes: `/xclaw/` and `/iseal/` resolve and expose their expected case-study headings.
+- Browser console: no error-level messages in the local prototype.
+
+## Comparison history
+
+1. Initial static export left Framer hydration scripts active, so their client runtime could replace personalized text with the original source content.
+2. The generator now removes that runtime/hydration layer and preserves the SSR visual state, including elements that would otherwise remain invisible after animation initialization.
+3. Re-generated all three routes, rechecked stale source copy, and compared the desktop source and prototype at the identical idle state.
+
 ## Findings
 
-- No actionable P0, P1, or P2 issues remain.
-- [P3] The source uses a high-contrast orange/black manga illustration, while the portfolio intentionally uses Gaoyi Wu's transparent photographic cutout. The replacement preserves the same right-heavy subject composition, oversized serif wordmark, cream paper field, orange accent, registration marks, and editorial rhythm while keeping the candidate recognizable.
-- [P3] The About section carries more evidence and education content than the source social-platform roster, so it extends beyond one viewport on shorter displays. This is an intentional content adaptation for recruiting rather than a structural drift.
-
-## Required Fidelity Surfaces
-
-- Fonts and typography: Playfair Display provides the high-contrast editorial serif; Inter and Noto Sans SC cover UI and bilingual copy. Display scale, tight tracking, small uppercase navigation, and mono metadata follow the source hierarchy without clipping.
-- Spacing and layout rhythm: Desktop hero and About retain the source's two-column composition, fixed header, left registration rail, thin rules, large negative space, and full-height sections. Mobile has no horizontal overflow.
-- Colors and visual tokens: Warm cream paper, near-black ink, muted rules, and restrained orange accents closely track the source palette.
-- Image quality and asset fidelity: The portrait is a real RGBA cutout with intact hair and clean transparent edges. It is rendered without stretching; its circular technical field and registration marks match the source art direction.
-- Copy and content: Source labels are replaced with resume-backed recruiting content, measurable outcomes, publications, experience, role targets, and direct contact paths.
-
-## Patches Made During QA
-
-- Reduced mobile portrait height from `29rem` to `19rem`.
-- Reduced mobile portrait width and wordmark scale so name, role, specialization, and summary appear in the opening viewport.
-- Confirmed the mobile menu exposes all five navigation links and changes to an expanded close state.
+- No P0, P1, or P2 visual defects remain in the checked surfaces.
+- The original layout, locally copied source assets, visual treatment, and responsive structure are retained; only approved portfolio copy and selected project imagery are personalized.
+- The original site's Framer-driven decorative motion is intentionally delivered as a static visual state in this local artifact. Primary project routes remain functional.
 
 ## Verification
 
-- Desktop console errors/warnings: none.
-- Mobile console errors/warnings: none.
-- Mobile horizontal overflow: none.
-- Focused interaction: mobile navigation opens and exposes About, Research, Experience, Projects, and Contact.
+- `python3 scripts/personalize_clone.py` completed and found no stale checked source strings in `index.html`, `xclaw/index.html`, or `iseal/index.html`.
+- `npm run build` passed without warnings.
+- Direct route verification passed for `http://localhost:4173/xclaw/` and `http://localhost:4173/iseal/`.
+
+## Final result
 
 final result: passed

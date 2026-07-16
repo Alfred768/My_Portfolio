@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title">
+  <title id="title">XClaw</title>
+  <rect width="160" height="160" rx="34" fill="#101827"/>
+  <path d="M42 43h23l15 22 15-22h23L92 80l27 37H96L80 94l-16 23H41l27-37-26-37Z" fill="#86efac"/>
+  <circle cx="119" cy="42" r="12" fill="#60a5fa"/>
+</svg>
