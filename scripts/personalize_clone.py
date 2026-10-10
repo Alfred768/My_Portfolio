@@ -31,6 +31,10 @@ PROFILE_URL_REWRITES = [
         "https://drive.google.com/file/d/1Mru8H1SZOt1-31eJhhlMEmqCMK6kx-2_/view?usp=sharing",
         "/resume/gaoyi-wu-resume.pdf",
     ),
+    (
+        "https://drive.google.com/file/d/1ZuNso0_pjlUjz0Fbp7ZzjapHjLceSFjx/view?usp=sharing",
+        "/resume/gaoyi-wu-resume.pdf",
+    ),
     ("https://www.linkedin.com/in/xiaoyang-hu-elena/", LINKEDIN_LINK),
     ("https://github.com/Xiaoyang-Hu-96", GITHUB_LINK),
     ("https://x.com/elenahuxy", GITHUB_LINK),
@@ -3259,6 +3263,7 @@ HOME_RUNTIME_REWRITES = [
     ("https://configpins.xiaoyanghu.com/", "https://github.com/Alfred768"),
     ("https://lobster-watch-landing.netlify.app/", "https://github.com/Alfred768"),
     ("https://www.instagram.com/eyes.of.elena/", "https://github.com/Alfred768"),
+    ("https://drive.google.com/file/d/1ZuNso0_pjlUjz0Fbp7ZzjapHjLceSFjx/view?usp=sharing", "/resume/gaoyi-wu-resume.pdf"),
 ]
 
 XCLAW_RUNTIME_REWRITES = [("https://akool.com/", "https://www.x-claw.shop/")]
