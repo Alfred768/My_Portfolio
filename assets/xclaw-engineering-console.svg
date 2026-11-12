@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">XClaw agent orchestration console</title>
+  <desc id="desc">A production engineering console showing agent topology, active tasks, tools, and system health.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#10151b"/>
+      <stop offset="1" stop-color="#1b232c"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity=".24"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" fill="#edf1f2"/>
+  <rect x="30" y="28" width="1140" height="704" rx="18" fill="url(#bg)" filter="url(#shadow)"/>
+  <rect x="30" y="28" width="1140" height="54" rx="18" fill="#202933"/>
+  <circle cx="58" cy="55" r="6" fill="#ff6b60"/><circle cx="78" cy="55" r="6" fill="#f4c85a"/><circle cx="98" cy="55" r="6" fill="#68cf8e"/>
+  <text x="132" y="61" fill="#f5f7f8" font-family="Arial, sans-serif" font-size="16" font-weight="700">XCLAW / AGENT ORCHESTRATOR</text>
+  <rect x="914" y="43" width="112" height="25" rx="7" fill="#203c36" stroke="#4ad89d" stroke-opacity=".55"/>
+  <circle cx="932" cy="55" r="4" fill="#4ad89d"/><text x="946" y="60" fill="#9ef0c7" font-family="Arial, sans-serif" font-size="11">ALL SYSTEMS</text>
+  <rect x="1042" y="43" width="96" height="25" rx="7" fill="#2a3540"/><text x="1060" y="60" fill="#c6d0d8" font-family="Arial, sans-serif" font-size="11">DEPLOY</text>
+
+  <rect x="54" y="104" width="178" height="604" rx="10" fill="#151c23" stroke="#34414d"/>
+  <text x="76" y="137" fill="#7f93a5" font-family="Arial, sans-serif" font-size="10" font-weight="700">WORKSPACE</text>
+  <rect x="68" y="154" width="150" height="42" rx="7" fill="#27343f"/><circle cx="88" cy="175" r="7" fill="#54d7aa"/><text x="105" y="180" fill="#fff" font-family="Arial, sans-serif" font-size="12">Agent graph</text>
+  <text x="105" y="227" fill="#a7b4bf" font-family="Arial, sans-serif" font-size="12">Task queue</text><circle cx="88" cy="223" r="6" fill="#536474"/>
+  <text x="105" y="271" fill="#a7b4bf" font-family="Arial, sans-serif" font-size="12">Tool registry</text><rect x="82" y="260" width="12" height="12" rx="2" fill="#536474"/>
+  <text x="105" y="315" fill="#a7b4bf" font-family="Arial, sans-serif" font-size="12">Memory</text><path d="M82 306h12v13H82z" fill="#536474"/>
+  <text x="76" y="376" fill="#7f93a5" font-family="Arial, sans-serif" font-size="10" font-weight="700">RUNTIMES</text>
+  <rect x="68" y="394" width="150" height="66" rx="7" fill="#1d262f" stroke="#34414d"/>
+  <circle cx="88" cy="416" r="5" fill="#54d7aa"/><text x="102" y="420" fill="#dce4e9" font-family="Arial, sans-serif" font-size="11">Planner</text>
+  <text x="102" y="441" fill="#758795" font-family="Arial, sans-serif" font-size="9">gpt-4.1 / online</text>
+  <rect x="68" y="472" width="150" height="66" rx="7" fill="#1d262f" stroke="#34414d"/>
+  <circle cx="88" cy="494" r="5" fill="#67a5ff"/><text x="102" y="498" fill="#dce4e9" font-family="Arial, sans-serif" font-size="11">Researcher</text>
+  <text x="102" y="519" fill="#758795" font-family="Arial, sans-serif" font-size="9">claude / active</text>
+  <rect x="68" y="550" width="150" height="66" rx="7" fill="#1d262f" stroke="#34414d"/>
+  <circle cx="88" cy="572" r="5" fill="#f1bd62"/><text x="102" y="576" fill="#dce4e9" font-family="Arial, sans-serif" font-size="11">Executor</text>
+  <text x="102" y="597" fill="#758795" font-family="Arial, sans-serif" font-size="9">local / standby</text>
+
+  <rect x="252" y="104" width="626" height="410" rx="10" fill="#151c23" stroke="#34414d"/>
+  <text x="276" y="137" fill="#e6ecf0" font-family="Arial, sans-serif" font-size="15" font-weight="700">Live orchestration graph</text>
+  <text x="276" y="157" fill="#788b99" font-family="Arial, sans-serif" font-size="10">12 tool calls / 3 agents / trace 8f2c</text>
+  <g stroke="#43515e" stroke-width="2">
+    <path d="M390 280L548 215L696 282L560 390L390 280"/><path d="M548 215L560 390"/><path d="M390 280L475 405"/><path d="M696 282L730 408"/><path d="M560 390L730 408"/>
+  </g>
+  <g font-family="Arial, sans-serif" text-anchor="middle">
+    <circle cx="390" cy="280" r="38" fill="#263b37" stroke="#4ad89d" stroke-width="2"/><text x="390" y="277" fill="#c6fae3" font-size="11" font-weight="700">PLANNER</text><text x="390" y="294" fill="#75cbaa" font-size="9">ready</text>
+    <circle cx="548" cy="215" r="38" fill="#26333f" stroke="#67a5ff" stroke-width="2"/><text x="548" y="212" fill="#d6e5ff" font-size="11" font-weight="700">RESEARCH</text><text x="548" y="229" fill="#8db8ff" font-size="9">working</text>
+    <circle cx="696" cy="282" r="38" fill="#3b3324" stroke="#f1bd62" stroke-width="2"/><text x="696" y="279" fill="#fff0c8" font-size="11" font-weight="700">EXECUTOR</text><text x="696" y="296" fill="#e6bd6e" font-size="9">queued</text>
+    <rect x="520" y="368" width="80" height="44" rx="8" fill="#222d36" stroke="#566777"/><text x="560" y="386" fill="#dbe3e9" font-size="10">MEMORY</text><text x="560" y="401" fill="#778b99" font-size="8">vector store</text>
+    <rect x="435" y="390" width="80" height="40" rx="8" fill="#222d36" stroke="#566777"/><text x="475" y="414" fill="#dbe3e9" font-size="10">BROWSER</text>
+    <rect x="690" y="388" width="80" height="40" rx="8" fill="#222d36" stroke="#566777"/><text x="730" y="412" fill="#dbe3e9" font-size="10">SHELL</text>
+  </g>
+
+  <rect x="898" y="104" width="240" height="410" rx="10" fill="#151c23" stroke="#34414d"/>
+  <text x="922" y="137" fill="#e6ecf0" font-family="Arial, sans-serif" font-size="15" font-weight="700">Execution trace</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="918" y="160" width="200" height="64" rx="8" fill="#1d262f"/><circle cx="938" cy="181" r="5" fill="#54d7aa"/><text x="953" y="185" fill="#dce4e9" font-size="10">Plan decomposed</text><text x="938" y="207" fill="#708390" font-size="9">6 subtasks / 0 blocked</text>
+    <rect x="918" y="236" width="200" height="64" rx="8" fill="#1d262f"/><circle cx="938" cy="257" r="5" fill="#67a5ff"/><text x="953" y="261" fill="#dce4e9" font-size="10">Sources retrieved</text><text x="938" y="283" fill="#708390" font-size="9">confidence 0.92</text>
+    <rect x="918" y="312" width="200" height="64" rx="8" fill="#1d262f"/><circle cx="938" cy="333" r="5" fill="#f1bd62"/><text x="953" y="337" fill="#dce4e9" font-size="10">Tool call pending</text><text x="938" y="359" fill="#708390" font-size="9">approval policy: scoped</text>
+    <text x="918" y="412" fill="#8295a3" font-size="9" font-weight="700">TOKEN BUDGET</text>
+    <rect x="918" y="425" width="200" height="8" rx="4" fill="#293540"/><rect x="918" y="425" width="126" height="8" rx="4" fill="#54d7aa"/>
+    <text x="918" y="456" fill="#8295a3" font-size="9" font-weight="700">LATENCY</text><text x="1118" y="456" fill="#dce4e9" font-size="10" text-anchor="end">1.42s p95</text>
+  </g>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="252" y="534" width="282" height="174" rx="10" fill="#151c23" stroke="#34414d"/>
+    <text x="276" y="568" fill="#e6ecf0" font-size="13" font-weight="700">Task throughput</text>
+    <path d="M276 666L276 596L510 596" fill="none" stroke="#32414e"/><path d="M282 648L318 635L354 642L390 615L426 622L462 585L504 602" fill="none" stroke="#54d7aa" stroke-width="3"/>
+    <circle cx="462" cy="585" r="4" fill="#54d7aa"/>
+    <rect x="552" y="534" width="326" height="174" rx="10" fill="#151c23" stroke="#34414d"/>
+    <text x="576" y="568" fill="#e6ecf0" font-size="13" font-weight="700">Tool reliability</text>
+    <text x="576" y="610" fill="#7e92a0" font-size="10">Browser</text><rect x="650" y="601" width="190" height="8" rx="4" fill="#293540"/><rect x="650" y="601" width="177" height="8" rx="4" fill="#67a5ff"/>
+    <text x="576" y="640" fill="#7e92a0" font-size="10">Shell</text><rect x="650" y="631" width="190" height="8" rx="4" fill="#293540"/><rect x="650" y="631" width="165" height="8" rx="4" fill="#54d7aa"/>
+    <text x="576" y="670" fill="#7e92a0" font-size="10">Memory</text><rect x="650" y="661" width="190" height="8" rx="4" fill="#293540"/><rect x="650" y="661" width="184" height="8" rx="4" fill="#f1bd62"/>
+    <rect x="898" y="534" width="240" height="174" rx="10" fill="#203c36" stroke="#4ad89d" stroke-opacity=".45"/>
+    <text x="922" y="568" fill="#9ef0c7" font-size="10" font-weight="700">CURRENT RUN</text><text x="922" y="614" fill="#fff" font-size="25" font-weight="700">87%</text><text x="922" y="638" fill="#8fc8ad" font-size="10">completion confidence</text>
+    <text x="922" y="674" fill="#cde8da" font-size="11">No failed tools detected</text>
+  </g>
+</svg>

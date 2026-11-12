@@ -1,0 +1,1531 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XClaw Case Study | Gaoyi Wu AI Portfolio</title>
+    <meta
+      name="description"
+      content="XClaw is an OpenClaw desktop AI workspace that removes CLI, model setup, skill installation, and account friction for beginners."
+    />
+    <meta name="theme-color" content="#f3efe7" />
+    <meta property="og:title" content="XClaw Case Study | Gaoyi Wu" />
+    <meta
+      property="og:description"
+      content="A desktop AI workspace that turns OpenClaw setup and daily operation into one visible product flow."
+    />
+    <meta property="og:image" content="/assets/xclaw-live/function/chat-1.png" />
+    <link rel="preload" href="/assets/xclaw-live/function/chat-1.png" as="image" />
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #111c2d;
+        --ink-soft: #334054;
+        --muted: #687180;
+        --paper: #f3efe7;
+        --surface: #fbfaf7;
+        --blue: #e4edf6;
+        --coral: #ea6555;
+        --coral-soft: #f2ded7;
+        --line: rgba(17, 28, 45, 0.14);
+        --shadow: 0 18px 50px rgba(37, 44, 53, 0.12);
+        --radius: 8px;
+        --content: 1240px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+        background: var(--paper);
+      }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          linear-gradient(rgba(17, 28, 45, 0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(17, 28, 45, 0.025) 1px, transparent 1px),
+          var(--paper);
+        background-size: 36px 36px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        line-height: 1.55;
+        letter-spacing: 0;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 20;
+        pointer-events: none;
+        opacity: 0.12;
+        background-image: url("/framerusercontent.com/images/rR6HYXBrMmX4cRpXfXUOvpvpB0.png");
+        background-size: 160px;
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      button,
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      button {
+        font: inherit;
+      }
+
+      :focus-visible {
+        outline: 3px solid rgba(234, 101, 85, 0.45);
+        outline-offset: 3px;
+      }
+
+      .site-header {
+        position: sticky;
+        top: 12px;
+        z-index: 10;
+        width: min(calc(100% - 32px), var(--content));
+        min-height: 64px;
+        margin: 12px auto 0;
+        padding: 10px 14px;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+        gap: 16px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: rgba(251, 250, 247, 0.92);
+        box-shadow: 0 10px 30px rgba(37, 44, 53, 0.08);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+      }
+
+      .brand-lockup {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        width: max-content;
+        text-decoration: none;
+      }
+
+      .brand-lockup img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .brand-copy {
+        display: grid;
+        line-height: 1.12;
+      }
+
+      .brand-copy strong {
+        font-size: 15px;
+      }
+
+      .brand-copy span {
+        color: var(--muted);
+        font-size: 10px;
+        text-transform: uppercase;
+      }
+
+      .header-nav {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+
+      .header-nav a,
+      .header-actions a {
+        min-height: 40px;
+        padding: 9px 14px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 999px;
+        color: var(--ink-soft);
+        font-size: 13px;
+        font-weight: 650;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+      }
+
+      .header-nav a:hover,
+      .header-actions a:hover {
+        background: var(--blue);
+        color: var(--ink);
+      }
+
+      .header-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 6px;
+      }
+
+      .header-actions .primary,
+      .button.primary {
+        color: #f8f6f1;
+        background: var(--ink);
+      }
+
+      .header-actions .primary:hover,
+      .button.primary:hover {
+        color: #f8f6f1;
+        background: #27364c;
+      }
+
+      .hero {
+        width: min(calc(100% - 32px), var(--content));
+        min-height: min(760px, calc(100dvh - 100px));
+        margin: 26px auto 0;
+        padding: clamp(28px, 5vw, 70px);
+        display: grid;
+        grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+        align-items: center;
+        gap: clamp(30px, 6vw, 78px);
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background:
+          linear-gradient(135deg, rgba(242, 222, 215, 0.78), transparent 42%),
+          linear-gradient(315deg, rgba(228, 237, 246, 0.95), transparent 50%),
+          var(--surface);
+      }
+
+      .hero-copy {
+        max-width: 500px;
+      }
+
+      .eyebrow {
+        margin: 0 0 16px;
+        color: var(--coral);
+        font-size: 12px;
+        font-weight: 750;
+        text-transform: uppercase;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(64px, 8vw, 116px);
+        line-height: 0.86;
+        font-weight: 820;
+        letter-spacing: 0;
+      }
+
+      .hero h2 {
+        max-width: 420px;
+        margin: 22px 0 0;
+        font-size: clamp(30px, 4vw, 54px);
+        line-height: 1.02;
+        font-weight: 720;
+        letter-spacing: 0;
+      }
+
+      .hero-summary {
+        max-width: 48ch;
+        margin: 22px 0 0;
+        color: var(--ink-soft);
+        font-size: 17px;
+      }
+
+      .hero-badges {
+        margin: 20px 0 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .hero-badges span {
+        padding: 7px 10px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(251, 250, 247, 0.72);
+        font-size: 12px;
+        font-weight: 700;
+      }
+
+      .hero-actions,
+      .closing-actions {
+        margin-top: 26px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .button {
+        min-height: 46px;
+        padding: 11px 18px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: rgba(251, 250, 247, 0.82);
+        color: var(--ink);
+        font-size: 14px;
+        font-weight: 720;
+        text-decoration: none;
+        white-space: nowrap;
+        transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+      }
+
+      .button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(37, 44, 53, 0.12);
+        background: var(--surface);
+      }
+
+      .button:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      .product-stage {
+        position: relative;
+        margin: 0;
+        padding: 26px 26px 0;
+        align-self: stretch;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        border: 1px solid rgba(17, 28, 45, 0.2);
+        border-radius: var(--radius);
+        background: var(--ink);
+        box-shadow: var(--shadow);
+      }
+
+      .product-stage::before {
+        content: "500+ MODELS READY";
+        position: absolute;
+        top: 14px;
+        right: 20px;
+        color: rgba(255, 255, 255, 0.65);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+      }
+
+      .product-stage::after {
+        content: "";
+        position: absolute;
+        top: 17px;
+        left: 18px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: var(--coral);
+        box-shadow: 14px 0 #f0c65c, 28px 0 #72b890;
+      }
+
+      .product-stage img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 6px 6px 0 0;
+        transform: translateY(1px);
+      }
+
+      .facts {
+        width: min(calc(100% - 32px), var(--content));
+        margin: 14px auto 0;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+      }
+
+      .fact {
+        min-height: 104px;
+        padding: 18px 20px;
+        display: grid;
+        align-content: center;
+        gap: 4px;
+        border-right: 1px solid var(--line);
+      }
+
+      .fact:last-child {
+        border-right: 0;
+      }
+
+      .fact span {
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      .fact strong {
+        font-size: 17px;
+      }
+
+      .case-layout {
+        width: min(calc(100% - 32px), var(--content));
+        margin: 92px auto 0;
+        display: grid;
+        grid-template-columns: 190px minmax(0, 1fr);
+        gap: clamp(34px, 6vw, 84px);
+      }
+
+      .case-nav {
+        position: sticky;
+        top: 96px;
+        height: max-content;
+        padding: 4px 0;
+        display: grid;
+        gap: 3px;
+      }
+
+      .case-nav a {
+        padding: 9px 10px;
+        border-left: 2px solid transparent;
+        color: var(--muted);
+        font-size: 13px;
+        font-weight: 620;
+        text-decoration: none;
+        transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+      }
+
+      .case-nav a:hover,
+      .case-nav a[aria-current="true"] {
+        color: var(--ink);
+        border-color: var(--coral);
+        background: rgba(251, 250, 247, 0.58);
+      }
+
+      .case-content {
+        min-width: 0;
+      }
+
+      .case-section {
+        padding: 0 0 116px;
+        scroll-margin-top: 110px;
+      }
+
+      .section-heading {
+        max-width: 780px;
+        margin-bottom: 38px;
+      }
+
+      .section-heading h2 {
+        margin: 0;
+        font-size: clamp(38px, 5vw, 66px);
+        line-height: 1;
+        font-weight: 760;
+        letter-spacing: 0;
+      }
+
+      .section-heading p {
+        max-width: 65ch;
+        margin: 18px 0 0;
+        color: var(--ink-soft);
+        font-size: 17px;
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 26px;
+        align-items: start;
+      }
+
+      .overview-copy {
+        padding: 30px;
+        border-top: 4px solid var(--coral);
+        background: var(--surface);
+      }
+
+      .overview-copy h3,
+      .support-copy h3,
+      .workflow-copy h3,
+      .reflection-copy h3 {
+        margin: 0;
+        font-size: 26px;
+        line-height: 1.14;
+      }
+
+      .overview-copy p,
+      .support-copy p,
+      .workflow-copy p,
+      .reflection-copy p {
+        margin: 14px 0 0;
+        color: var(--ink-soft);
+      }
+
+      .ownership-list {
+        margin: 0;
+        padding: 0;
+        display: grid;
+        list-style: none;
+        border-top: 1px solid var(--line);
+      }
+
+      .ownership-list li {
+        padding: 15px 4px;
+        display: grid;
+        grid-template-columns: 28px 1fr;
+        gap: 12px;
+        border-bottom: 1px solid var(--line);
+        color: var(--ink-soft);
+      }
+
+      .ownership-list b {
+        color: var(--coral);
+      }
+
+      .problem-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .problem-item {
+        min-height: 220px;
+        padding: 28px;
+        display: grid;
+        align-content: space-between;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+      }
+
+      .problem-item:nth-child(2),
+      .problem-item:nth-child(3) {
+        background: var(--blue);
+      }
+
+      .problem-item:nth-child(4) {
+        background: var(--coral-soft);
+      }
+
+      .problem-item span {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 750;
+        text-transform: uppercase;
+      }
+
+      .problem-item h3 {
+        max-width: 17ch;
+        margin: 36px 0 0;
+        font-size: clamp(23px, 3vw, 34px);
+        line-height: 1.07;
+      }
+
+      .problem-item p {
+        margin: 14px 0 0;
+        color: var(--ink-soft);
+      }
+
+      .interactive-shell {
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+      }
+
+      .tab-rail {
+        padding: 10px;
+        display: flex;
+        gap: 6px;
+        overflow-x: auto;
+        border-bottom: 1px solid var(--line);
+        scrollbar-width: none;
+      }
+
+      .tab-rail::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab-button {
+        min-width: max-content;
+        min-height: 40px;
+        padding: 9px 14px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        background: transparent;
+        color: var(--muted);
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: 700;
+        transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
+      }
+
+      .tab-button:hover {
+        color: var(--ink);
+        background: var(--blue);
+      }
+
+      .tab-button[aria-selected="true"],
+      .tab-button[aria-pressed="true"] {
+        color: #f8f6f1;
+        background: var(--ink);
+        border-color: var(--ink);
+      }
+
+      .interactive-panel {
+        display: grid;
+        grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.28fr);
+        min-height: 520px;
+      }
+
+      .workflow-panel {
+        grid-template-columns: minmax(260px, 0.68fr) minmax(0, 1.32fr);
+      }
+
+      .panel-copy {
+        padding: clamp(28px, 4vw, 52px);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      .panel-index {
+        margin: 0 0 20px;
+        color: var(--coral);
+        font-size: 13px;
+        font-weight: 760;
+      }
+
+      .panel-copy h3 {
+        margin: 0;
+        font-size: clamp(28px, 3.4vw, 46px);
+        line-height: 1.03;
+      }
+
+      .panel-summary {
+        margin: 18px 0 0;
+        color: var(--ink-soft);
+        font-size: 16px;
+      }
+
+      .panel-detail {
+        margin: 18px 0 0;
+        padding-top: 18px;
+        border-top: 1px solid var(--line);
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .media-frame {
+        min-height: 420px;
+        padding: 28px 28px 0;
+        display: flex;
+        align-items: flex-end;
+        overflow: hidden;
+        background: var(--blue);
+      }
+
+      .media-frame img {
+        width: 100%;
+        max-height: 500px;
+        display: block;
+        object-fit: contain;
+        object-position: center bottom;
+        filter: drop-shadow(0 18px 24px rgba(17, 28, 45, 0.16));
+      }
+
+      .media-frame.is-switching img {
+        animation: media-enter 420ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      @keyframes media-enter {
+        from {
+          opacity: 0;
+          transform: translateY(18px) scale(0.985);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0) scale(1);
+        }
+      }
+
+      .workflow-controls {
+        padding: 10px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .workflow-controls .tab-button {
+        min-width: 0;
+      }
+
+      .surface-list {
+        margin-top: 34px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .surface-button {
+        width: 100%;
+        padding: 12px 0;
+        display: grid;
+        grid-template-columns: 32px 1fr;
+        gap: 12px;
+        border: 0;
+        border-bottom: 1px solid var(--line);
+        background: transparent;
+        color: var(--muted);
+        text-align: left;
+        cursor: pointer;
+      }
+
+      .surface-button:hover,
+      .surface-button[aria-pressed="true"] {
+        color: var(--ink);
+      }
+
+      .surface-button b {
+        color: var(--coral);
+        font-size: 12px;
+      }
+
+      .surface-button span {
+        font-weight: 700;
+      }
+
+      .tag-list {
+        margin: 22px 0 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        list-style: none;
+      }
+
+      .tag-list li {
+        padding: 6px 9px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        color: var(--ink-soft);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .system-grid {
+        display: grid;
+        gap: 18px;
+      }
+
+      .support-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1.28fr) minmax(260px, 0.72fr);
+        min-height: 440px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+      }
+
+      .support-row:nth-child(even) {
+        grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+      }
+
+      .support-row:nth-child(even) .support-media {
+        order: 2;
+      }
+
+      .support-media {
+        padding: 24px 24px 0;
+        display: flex;
+        align-items: flex-end;
+        background: var(--coral-soft);
+      }
+
+      .support-row:nth-child(even) .support-media {
+        background: var(--blue);
+      }
+
+      .support-media img {
+        width: 100%;
+        display: block;
+        filter: drop-shadow(0 18px 28px rgba(17, 28, 45, 0.13));
+      }
+
+      .support-copy {
+        padding: clamp(30px, 5vw, 56px);
+        display: grid;
+        align-content: center;
+      }
+
+      .support-copy small {
+        margin-bottom: 12px;
+        color: var(--coral);
+        font-size: 11px;
+        font-weight: 760;
+        text-transform: uppercase;
+      }
+
+      .support-points {
+        margin: 24px 0 0;
+        padding: 0;
+        display: grid;
+        gap: 10px;
+        list-style: none;
+      }
+
+      .support-points li {
+        padding-top: 10px;
+        border-top: 1px solid var(--line);
+        color: var(--ink-soft);
+        font-size: 14px;
+      }
+
+      .outcome-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .outcome-item {
+        min-height: 260px;
+        padding: 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--surface);
+      }
+
+      .outcome-item:nth-child(2) {
+        background: var(--blue);
+      }
+
+      .outcome-item:nth-child(3) {
+        background: var(--coral-soft);
+      }
+
+      .outcome-item strong {
+        font-size: clamp(32px, 4vw, 50px);
+        line-height: 0.98;
+      }
+
+      .outcome-item p {
+        margin: 28px 0 0;
+        color: var(--ink-soft);
+      }
+
+      .reflection {
+        margin-top: 18px;
+        padding: clamp(30px, 5vw, 58px);
+        display: grid;
+        grid-template-columns: 0.72fr 1.28fr;
+        gap: 42px;
+        border-top: 1px solid var(--line);
+        border-bottom: 1px solid var(--line);
+        background: rgba(251, 250, 247, 0.5);
+      }
+
+      .reflection-copy p:first-of-type {
+        margin-top: 0;
+      }
+
+      .closing {
+        width: min(calc(100% - 32px), var(--content));
+        margin: 0 auto 22px;
+        padding: clamp(38px, 7vw, 84px);
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        gap: 36px;
+        border: 1px solid var(--line);
+        border-radius: var(--radius);
+        background: var(--ink);
+        color: #f7f4ed;
+      }
+
+      .closing h2 {
+        max-width: 720px;
+        margin: 0;
+        font-size: clamp(42px, 6vw, 78px);
+        line-height: 0.98;
+      }
+
+      .closing p {
+        max-width: 58ch;
+        margin: 18px 0 0;
+        color: rgba(247, 244, 237, 0.7);
+      }
+
+      .closing .button {
+        border-color: rgba(247, 244, 237, 0.24);
+        background: rgba(247, 244, 237, 0.08);
+        color: #f7f4ed;
+      }
+
+      .closing .button.primary {
+        background: #f7f4ed;
+        color: var(--ink);
+      }
+
+      .site-footer {
+        width: min(calc(100% - 32px), var(--content));
+        margin: 0 auto 28px;
+        padding: 22px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 18px;
+      }
+
+      .footer-links a {
+        text-decoration: none;
+      }
+
+      .footer-links a:hover {
+        color: var(--ink);
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(24px);
+        transition: opacity 640ms cubic-bezier(0.16, 1, 0.3, 1), transform 640ms cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal.is-visible {
+        opacity: 1;
+        transform: none;
+      }
+
+      @media (max-width: 980px) {
+        .site-header {
+          grid-template-columns: 1fr auto;
+        }
+
+        .header-nav {
+          display: none;
+        }
+
+        .hero {
+          min-height: auto;
+          grid-template-columns: 1fr;
+        }
+
+        .hero-copy {
+          max-width: 680px;
+        }
+
+        .hero h1 {
+          font-size: clamp(64px, 15vw, 106px);
+        }
+
+        .product-stage {
+          min-height: 520px;
+        }
+
+        .case-layout {
+          grid-template-columns: 1fr;
+          margin-top: 72px;
+        }
+
+        .case-nav {
+          display: none;
+        }
+
+        .support-row,
+        .support-row:nth-child(even) {
+          grid-template-columns: 1fr;
+        }
+
+        .support-row:nth-child(even) .support-media {
+          order: 0;
+        }
+
+        .outcome-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .outcome-item {
+          min-height: 210px;
+        }
+
+        .closing {
+          grid-template-columns: 1fr;
+          align-items: start;
+        }
+      }
+
+      @media (max-width: 720px) {
+        .site-header {
+          width: calc(100% - 20px);
+          top: 8px;
+          margin-top: 8px;
+        }
+
+        .brand-copy span,
+        .header-actions a:not(.primary) {
+          display: none;
+        }
+
+        .header-actions a {
+          padding-inline: 12px;
+        }
+
+        .hero,
+        .facts,
+        .case-layout,
+        .closing,
+        .site-footer {
+          width: calc(100% - 20px);
+        }
+
+        .hero {
+          margin-top: 18px;
+          padding: 28px 20px 20px;
+          gap: 32px;
+        }
+
+        .hero h2 {
+          font-size: 38px;
+        }
+
+        .hero-summary {
+          font-size: 15px;
+        }
+
+        .product-stage {
+          min-height: 320px;
+          padding: 24px 12px 0;
+        }
+
+        .facts {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .fact {
+          min-height: 90px;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .fact:nth-child(2) {
+          border-right: 0;
+        }
+
+        .fact:nth-child(3),
+        .fact:nth-child(4) {
+          border-bottom: 0;
+        }
+
+        .overview-grid,
+        .problem-grid,
+        .interactive-panel,
+        .workflow-panel,
+        .reflection {
+          grid-template-columns: 1fr;
+        }
+
+        .panel-copy {
+          border-right: 0;
+          border-bottom: 1px solid var(--line);
+        }
+
+        .interactive-panel {
+          min-height: 0;
+        }
+
+        .media-frame {
+          min-height: 320px;
+          padding: 18px 12px 0;
+        }
+
+        .workflow-controls {
+          display: grid;
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+          overflow: visible;
+        }
+
+        .workflow-controls .tab-button {
+          min-width: 0;
+          padding-inline: 8px;
+          font-size: 11px;
+          line-height: 1.2;
+          white-space: normal;
+        }
+
+        .case-section {
+          padding-bottom: 86px;
+        }
+
+        .section-heading h2 {
+          font-size: 42px;
+        }
+
+        .reflection {
+          gap: 22px;
+          padding: 30px 22px;
+        }
+
+        .closing h2 {
+          font-size: 48px;
+        }
+
+        .site-footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand-lockup" href="/" aria-label="Back to Gaoyi Wu portfolio">
+        <img src="/assets/xclaw-live/logo.png" alt="XClaw logo" />
+        <span class="brand-copy">
+          <strong>XClaw</strong>
+          <span>OpenClaw, ready for beginners</span>
+        </span>
+      </a>
+      <nav class="header-nav" aria-label="Case study navigation">
+        <a href="#overview">Overview</a>
+        <a href="#onboarding">Onboarding</a>
+        <a href="#workflows">Workflows</a>
+      </nav>
+      <div class="header-actions">
+        <a href="https://github.com/Alfred768/xclaw?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="primary" href="https://www.x-claw.shop/" target="_blank" rel="noopener noreferrer">Live site</a>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero reveal">
+        <div class="hero-copy">
+          <p class="eyebrow">Product case study</p>
+          <h1>XClaw</h1>
+          <h2>OpenClaw, ready for beginners.</h2>
+          <p class="hero-summary">A desktop AI workspace that turns installation, sign-in, models, skills, and automation into one visible product flow.</p>
+          <div class="hero-badges" aria-label="Product proof points">
+            <span>500+ models ready</span>
+            <span>50+ built-in skills</span>
+            <span>No CLI required</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="https://www.x-claw.shop/" target="_blank" rel="noopener noreferrer">View live product &#8599;</a>
+            <a class="button" href="https://www.x-claw.shop/download" target="_blank" rel="noopener noreferrer">Download desktop</a>
+          </div>
+        </div>
+        <figure class="product-stage">
+          <img
+            src="/assets/xclaw-live/function/chat-1.png"
+            alt="XClaw desktop chat welcome state"
+            width="1796"
+            height="1594"
+            fetchpriority="high"
+          />
+        </figure>
+      </section>
+
+      <section class="facts reveal" aria-label="Project facts">
+        <div class="fact"><span>Role</span><strong>Individual Contributor (IC)</strong></div>
+        <div class="fact"><span>Period</span><strong>Sep 2025 - Nov 2025</strong></div>
+        <div class="fact"><span>Scope</span><strong>Product, frontend, AI workflows</strong></div>
+        <div class="fact"><span>Release</span><strong>Desktop and web</strong></div>
+      </section>
+
+      <div class="case-layout">
+        <aside class="case-nav" aria-label="Case study table of contents">
+          <a href="#overview" aria-current="true">Overview</a>
+          <a href="#problem">Problem</a>
+          <a href="#onboarding">Seven-step onboarding</a>
+          <a href="#workflows">Real workflows</a>
+          <a href="#system">Product system</a>
+          <a href="#outcomes">Outcomes</a>
+        </aside>
+
+        <div class="case-content">
+          <section class="case-section reveal" id="overview">
+            <div class="section-heading">
+              <h2>One product instead of a setup puzzle.</h2>
+              <p>XClaw packages the difficult first mile of OpenClaw into a desktop product that non-technical users can understand, configure, and continue using.</p>
+            </div>
+            <div class="overview-grid">
+              <article class="overview-copy">
+                <h3>What I built</h3>
+                <p>I shaped the product flow from first launch through everyday operation, connecting onboarding, model access, skills, channels, automation, usage, subscription, and account continuity.</p>
+                <p>The core design principle was simple: keep system state visible so users can make progress without becoming operators first.</p>
+              </article>
+              <ul class="ownership-list" aria-label="Areas of ownership">
+                <li><b>01</b><span>Product framing and workflow architecture</span></li>
+                <li><b>02</b><span>Seven-step onboarding and recovery states</span></li>
+                <li><b>03</b><span>Desktop information architecture and interaction system</span></li>
+                <li><b>04</b><span>Model, skill, channel, and automation surfaces</span></li>
+                <li><b>05</b><span>Frontend implementation, iteration, and QA</span></li>
+              </ul>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="problem">
+            <div class="section-heading">
+              <h2>The AI was not the blocker. Setup was.</h2>
+              <p>People wanted outcomes from OpenClaw, but the path to those outcomes was fragmented across terminal commands, model configuration, skills, and account state.</p>
+            </div>
+            <div class="problem-grid">
+              <article class="problem-item">
+                <span>CLI friction</span>
+                <div><h3>The terminal wins before value appears.</h3><p>Users should not need to become operators before they can try an AI workspace.</p></div>
+              </article>
+              <article class="problem-item">
+                <span>Scattered setup</span>
+                <div><h3>Models, skills, and accounts feel self-assembled.</h3><p>Critical configuration was difficult to discover, explain, and recover.</p></div>
+              </article>
+              <article class="problem-item">
+                <span>Hard to sustain</span>
+                <div><h3>Automation stays trapped in scripts.</h3><p>Recurring work needs visible schedules, state, and ownership to remain useful.</p></div>
+              </article>
+              <article class="problem-item">
+                <span>Hard to evaluate</span>
+                <div><h3>Invisible usage and account state lower trust.</h3><p>Teams need clear access, plan, and token information before they can adopt a system.</p></div>
+              </article>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="onboarding">
+            <div class="section-heading">
+              <h2>Seven visible steps from install to ready.</h2>
+              <p>The onboarding flow handles uncertainty in sequence: explain, authenticate, check, configure, connect, install, and confirm readiness.</p>
+            </div>
+            <div class="interactive-shell" data-onboarding>
+              <div class="tab-rail" role="tablist" aria-label="XClaw setup steps">
+                <button class="tab-button" type="button" role="tab" aria-selected="true" data-step="0">Welcome</button>
+                <button class="tab-button" type="button" role="tab" aria-selected="false" data-step="1">Sign in</button>
+                <button class="tab-button" type="button" role="tab" aria-selected="false" data-step="2">Checks</button>
+                <button class="tab-button" type="button" role="tab" aria-selected="false" data-step="3">Models</button>
+                <button class="tab-button" type="button" role="tab" aria-selected="false" data-step="4">Channels</button>
+                <button class="tab-button" type="button" role="tab" aria-selected="false" data-step="5">Install</button>
+                <button class="tab-button" type="button" role="tab" aria-selected="false" data-step="6">Ready</button>
+              </div>
+              <div class="interactive-panel">
+                <div class="panel-copy">
+                  <div>
+                    <p class="panel-index" data-step-index>01 / 07</p>
+                    <h3 data-step-title>Explain the path before asking for setup</h3>
+                    <p class="panel-summary" data-step-summary>Users first understand what this is and what happens next.</p>
+                  </div>
+                  <p class="panel-detail" data-step-detail>The first screen removes uncertainty instead of front-loading complexity.</p>
+                </div>
+                <div class="media-frame" data-step-frame>
+                  <img data-step-image src="/assets/xclaw-live/setup/step1.png" alt="XClaw welcome screen" width="1798" height="1594" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="workflows">
+            <div class="section-heading">
+              <h2>It is more than a chat shell.</h2>
+              <p>Core work, automation, and system operation share one desktop language so users can understand where they are and what happens next.</p>
+            </div>
+            <div class="interactive-shell" data-workflows>
+              <div class="workflow-controls" role="group" aria-label="Workflow modes">
+                <button class="tab-button" type="button" aria-pressed="true" data-group="start">Start working</button>
+                <button class="tab-button" type="button" aria-pressed="false" data-group="automate">Automate work</button>
+                <button class="tab-button" type="button" aria-pressed="false" data-group="operate">Operate system</button>
+              </div>
+              <div class="interactive-panel workflow-panel">
+                <div class="panel-copy workflow-copy">
+                  <div>
+                    <p class="panel-index" data-workflow-label>Dashboard</p>
+                    <h3 data-workflow-title>See the state before making the next move</h3>
+                    <p class="panel-summary" data-workflow-body>Models, channels, skills, and key entries stay visible from the first desktop surface.</p>
+                    <ul class="tag-list" data-workflow-tags>
+                      <li>Account state</li><li>Model entry</li><li>Skill overview</li>
+                    </ul>
+                  </div>
+                  <div class="surface-list" data-surface-list></div>
+                </div>
+                <div class="media-frame" data-workflow-frame>
+                  <img data-workflow-image src="/assets/xclaw-live/function/dashboard.png" alt="XClaw dashboard page" width="1800" height="1594" loading="lazy" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="system">
+            <div class="section-heading">
+              <h2>Access and continuity are product surfaces.</h2>
+              <p>Subscription, model availability, account state, and cross-device continuity are visible parts of the experience, not hidden operational details.</p>
+            </div>
+            <div class="system-grid">
+              <article class="support-row">
+                <div class="support-media"><img src="/assets/xclaw-live/function/subscription1.png" alt="XClaw subscription allowance tiers" width="1794" height="1590" loading="lazy" /></div>
+                <div class="support-copy">
+                  <small>Subscription and API</small>
+                  <h3>Subscribe once, then choose from 500+ models.</h3>
+                  <p>Allowance tiers, built-in API access, and the supported model catalog stay understandable inside the product.</p>
+                  <ul class="support-points"><li>Free, monthly, and yearly allowance tiers</li><li>Built-in model access after subscription</li><li>Usage and entitlement stay visible</li></ul>
+                </div>
+              </article>
+              <article class="support-row">
+                <div class="support-media"><img src="/assets/xclaw-live/function/account.png" alt="XClaw account profile and access state" width="1802" height="1594" loading="lazy" /></div>
+                <div class="support-copy">
+                  <small>Account and security</small>
+                  <h3>Sign in once and keep access connected.</h3>
+                  <p>Profile, plan, and model access remain tied to the account, making the workspace easier to resume across devices.</p>
+                  <ul class="support-points"><li>Saved profile and account state</li><li>Plan and model access stay connected</li><li>Clearer recovery when users switch devices</li></ul>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <section class="case-section reveal" id="outcomes">
+            <div class="section-heading">
+              <h2>What the shipped system now makes possible.</h2>
+              <p>The outcome is not a single interface. It is a complete path from first launch to ongoing AI work, grounded in visible product state.</p>
+            </div>
+            <div class="outcome-grid">
+              <article class="outcome-item"><strong>No CLI first mile</strong><p>Users can start from a desktop installer and move through a guided setup path.</p></article>
+              <article class="outcome-item"><strong>500+ models ready</strong><p>Model access and built-in API configuration stay in the product instead of external setup files.</p></article>
+              <article class="outcome-item"><strong>50+ skills built in</strong><p>Skills, reminders, briefings, channels, and scheduled work become visible, reusable capabilities.</p></article>
+            </div>
+            <div class="reflection">
+              <div class="reflection-copy"><h3>Reflection</h3><p>Designing for beginners did not mean hiding the system. It meant exposing the right state in the right order.</p></div>
+              <div class="reflection-copy"><p>The strongest decisions came from treating installation, account access, model configuration, and automation as one product journey. That framing made the desktop workspace easier to explain and made failure states easier to recover.</p><p>The next step is deeper validation across operating systems, plan tiers, and long-running automation, with product analytics tied to each onboarding transition.</p></div>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <section class="closing reveal">
+        <div>
+          <h2>Skip setup. Start work.</h2>
+          <p>Download the desktop app, sign in, connect model access, and use OpenClaw through a real product instead of a terminal-first workflow.</p>
+        </div>
+        <div class="closing-actions">
+          <a class="button primary" href="https://www.x-claw.shop/download" target="_blank" rel="noopener noreferrer">Download desktop</a>
+          <a class="button" href="https://github.com/Alfred768/xclaw?tab=readme-ov-file" target="_blank" rel="noopener noreferrer">View GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>Designed and built by Gaoyi Wu. 2026.</span>
+      <div class="footer-links">
+        <a href="mailto:criswu20010728@gmail.com">Email</a>
+        <a href="https://www.linkedin.com/in/gaoyiwu/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://github.com/Alfred768" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="/">Portfolio</a>
+      </div>
+    </footer>
+
+    <script>
+      (() => {
+        const setupSteps = [
+          {
+            index: "01 / 07",
+            title: "Explain the path before asking for setup",
+            summary: "Users first understand what this is and what happens next.",
+            detail: "The first screen removes uncertainty instead of front-loading complexity.",
+            image: "/assets/xclaw-live/setup/step1.png",
+            alt: "XClaw welcome screen",
+          },
+          {
+            index: "02 / 07",
+            title: "Sign in first and connect the account",
+            summary: "Account access is a visible step inside onboarding.",
+            detail: "Once connected, profile, plan, and cross-device access line up naturally.",
+            image: "/assets/xclaw-live/setup/step2-1.png",
+            alt: "XClaw login method selection",
+          },
+          {
+            index: "03 / 07",
+            title: "Check the environment before deeper setup",
+            summary: "Common blockers appear early, before they create wasted effort.",
+            detail: "The goal is recovery and confidence, not more technical detail.",
+            image: "/assets/xclaw-live/setup/step3.png",
+            alt: "XClaw environment check screen",
+          },
+          {
+            index: "04 / 07",
+            title: "Make model configuration visible and recoverable",
+            summary: "Built-in API, key handling, and 500+ model choices stay together.",
+            detail: "A major AI tooling friction point becomes an understandable product step.",
+            image: "/assets/xclaw-live/setup/step4.png",
+            alt: "XClaw model configuration screen",
+          },
+          {
+            index: "05 / 07",
+            title: "Bring channels into the workspace",
+            summary: "Optional channel connections are already part of the product path.",
+            detail: "This moves XClaw from local chat toward a connected work system.",
+            image: "/assets/xclaw-live/setup/step5.png",
+            alt: "XClaw channel connection screen",
+          },
+          {
+            index: "06 / 07",
+            title: "Turn installation into visible progress",
+            summary: "Required components and skills install without terminal commands.",
+            detail: "Users see progress and state instead of waiting inside a black box.",
+            image: "/assets/xclaw-live/setup/step6.png",
+            alt: "XClaw component installation screen",
+          },
+          {
+            index: "07 / 07",
+            title: "Land directly in a product ready to use",
+            summary: "Completion confirms readiness instead of ending on a dead screen.",
+            detail: "Install, sign-in, configuration, and handoff now form a complete loop.",
+            image: "/assets/xclaw-live/setup/step7.png",
+            alt: "XClaw setup completion screen",
+          },
+        ];
+
+        const workflows = {
+          start: [
+            { label: "Chat", title: "Chat first, then move into work", body: "Start with conversation, then turn outcomes into real work inside the same desktop product.", image: "/assets/xclaw-live/function/chat-2.png", alt: "XClaw chat page", tags: ["Chat entry", "Suggestion cards", "Continue work"] },
+            { label: "Dashboard", title: "See the state before making the next move", body: "Models, channels, skills, and key entries stay visible from the first desktop surface.", image: "/assets/xclaw-live/function/dashboard.png", alt: "XClaw dashboard page", tags: ["Account state", "Model entry", "Skill overview"] },
+            { label: "Channels", title: "Bring channels into the same workspace", body: "External sources become visible, manageable, and easier to explain to a team.", image: "/assets/xclaw-live/function/channel.png", alt: "XClaw channels page", tags: ["Unified connection", "Status control", "Message entry"] },
+          ],
+          automate: [
+            { label: "Mission", title: "Let repeat work run on schedule", body: "Recurring work moves into visible schedules instead of living in memory or scripts.", image: "/assets/xclaw-live/function/mission.png", alt: "XClaw scheduled mission page", tags: ["Scheduled runs", "Visible status", "Repeatable flow"] },
+            { label: "Briefing", title: "Deploy daily briefings in one move", body: "Daily briefings run as a product surface instead of custom glue work.", image: "/assets/xclaw-live/function/briefing.png", alt: "XClaw daily briefing page", tags: ["One-click deploy", "Daily summary", "Configurable"] },
+            { label: "Todo", title: "Turn chat into reminders and tasks", body: "AI can extract reminders and todos from conversations instead of leaving them buried.", image: "/assets/xclaw-live/function/todo.png", alt: "XClaw todo page", tags: ["Chat extraction", "Reminders", "Task management"] },
+          ],
+          operate: [
+            { label: "Skills", title: "Install and manage skills in one place", body: "More than 50 built-in skills can be enabled, installed, and managed inside the product.", image: "/assets/xclaw-live/function/skill.png", alt: "XClaw skills page", tags: ["50+ built in", "One-click install", "Configuration"] },
+            { label: "Usage", title: "Keep token usage and allowance visible", body: "Model requests, token usage, and allowance changes are available as operational state.", image: "/assets/xclaw-live/function/usage.png", alt: "XClaw usage analytics page", tags: ["Token usage", "Request history", "Allowance"] },
+            { label: "Settings", title: "Choose models without editing config files", body: "Built-in API access and more than 500 models are available from one settings surface.", image: "/assets/xclaw-live/function/setting.png", alt: "XClaw settings page", tags: ["500+ models", "Built-in API", "Direct configuration"] },
+          ],
+        };
+
+        const animateFrame = (frame) => {
+          frame.classList.remove("is-switching");
+          void frame.offsetWidth;
+          frame.classList.add("is-switching");
+        };
+
+        const onboarding = document.querySelector("[data-onboarding]");
+        if (onboarding) {
+          const buttons = [...onboarding.querySelectorAll("[data-step]")];
+          const index = onboarding.querySelector("[data-step-index]");
+          const title = onboarding.querySelector("[data-step-title]");
+          const summary = onboarding.querySelector("[data-step-summary]");
+          const detail = onboarding.querySelector("[data-step-detail]");
+          const image = onboarding.querySelector("[data-step-image]");
+          const frame = onboarding.querySelector("[data-step-frame]");
+
+          buttons.forEach((button) => button.addEventListener("click", () => {
+            const step = setupSteps[Number(button.dataset.step)];
+            buttons.forEach((item) => item.setAttribute("aria-selected", String(item === button)));
+            index.textContent = step.index;
+            title.textContent = step.title;
+            summary.textContent = step.summary;
+            detail.textContent = step.detail;
+            image.src = step.image;
+            image.alt = step.alt;
+            animateFrame(frame);
+          }));
+        }
+
+        const workflowRoot = document.querySelector("[data-workflows]");
+        if (workflowRoot) {
+          const groupButtons = [...workflowRoot.querySelectorAll("[data-group]")];
+          const surfaceList = workflowRoot.querySelector("[data-surface-list]");
+          const label = workflowRoot.querySelector("[data-workflow-label]");
+          const title = workflowRoot.querySelector("[data-workflow-title]");
+          const body = workflowRoot.querySelector("[data-workflow-body]");
+          const tags = workflowRoot.querySelector("[data-workflow-tags]");
+          const image = workflowRoot.querySelector("[data-workflow-image]");
+          const frame = workflowRoot.querySelector("[data-workflow-frame]");
+
+          const showSurface = (groupName, itemIndex) => {
+            const item = workflows[groupName][itemIndex];
+            label.textContent = item.label;
+            title.textContent = item.title;
+            body.textContent = item.body;
+            image.src = item.image;
+            image.alt = item.alt;
+            tags.replaceChildren(...item.tags.map((tag) => {
+              const node = document.createElement("li");
+              node.textContent = tag;
+              return node;
+            }));
+            [...surfaceList.children].forEach((button, indexValue) => button.setAttribute("aria-pressed", String(indexValue === itemIndex)));
+            animateFrame(frame);
+          };
+
+          const showGroup = (groupName) => {
+            groupButtons.forEach((button) => button.setAttribute("aria-pressed", String(button.dataset.group === groupName)));
+            surfaceList.replaceChildren(...workflows[groupName].map((item, itemIndex) => {
+              const button = document.createElement("button");
+              button.type = "button";
+              button.className = "surface-button";
+              button.setAttribute("aria-pressed", String(itemIndex === 0));
+              button.innerHTML = `<b>${String(itemIndex + 1).padStart(2, "0")}</b><span>${item.label}</span>`;
+              button.addEventListener("click", () => showSurface(groupName, itemIndex));
+              return button;
+            }));
+            showSurface(groupName, 0);
+          };
+
+          groupButtons.forEach((button) => button.addEventListener("click", () => showGroup(button.dataset.group)));
+          showGroup("start");
+        }
+
+        const revealItems = [...document.querySelectorAll(".reveal")];
+        if ("IntersectionObserver" in window) {
+          const revealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting) return;
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            });
+          }, { threshold: 0.12, rootMargin: "0px 0px -8%" });
+          revealItems.forEach((item) => revealObserver.observe(item));
+        } else {
+          revealItems.forEach((item) => item.classList.add("is-visible"));
+        }
+
+        const sections = [...document.querySelectorAll(".case-section[id]")];
+        const navLinks = [...document.querySelectorAll(".case-nav a")];
+        if ("IntersectionObserver" in window && navLinks.length) {
+          const navObserver = new IntersectionObserver((entries) => {
+            const visible = entries.filter((entry) => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+            if (!visible) return;
+            navLinks.forEach((link) => link.setAttribute("aria-current", String(link.getAttribute("href") === `#${visible.target.id}`)));
+          }, { rootMargin: "-20% 0px -60%", threshold: [0.05, 0.2, 0.4] });
+          sections.forEach((section) => navObserver.observe(section));
+        }
+      })();
+    </script>
+  </body>
+</html>
