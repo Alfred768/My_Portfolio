@@ -21,6 +21,7 @@ XRAY_LINK = "https://arxiv.org/abs/2511.02280"
 WEBWEAVER_LINK = "https://arxiv.org/abs/2603.11132"
 LINKEDIN_LINK = "https://www.linkedin.com/in/gaoyiwu/"
 GITHUB_LINK = "https://github.com/Alfred768"
+XCLAW_SITE_LINK = "https://www.x-claw.shop/"
 SCHOLAR_LINK = "https://scholar.google.com/citations?user=mvtCDxQA&user=mvtCDxQAAAAJ"
 CONTROL_CHARS = re.compile(r"[\x00-\x08\x0B\x0C\x0E-\x1F\x7F-\x9F]")
 
@@ -3266,7 +3267,7 @@ HOME_RUNTIME_REWRITES = [
     ("https://drive.google.com/file/d/1ZuNso0_pjlUjz0Fbp7ZzjapHjLceSFjx/view?usp=sharing", "/resume/gaoyi-wu-resume.pdf"),
 ]
 
-XCLAW_RUNTIME_REWRITES = [("https://akool.com/", "https://www.x-claw.shop/")]
+XCLAW_RUNTIME_REWRITES = [("https://akool.com/", XCLAW_SITE_LINK)]
 ISEAL_RUNTIME_REWRITES = [("https://www.siemens.com/us/en.html", "https://arxiv.org/abs/2511.08905")]
 
 SEARCH_INDEX_REWRITES = [
@@ -3411,7 +3412,7 @@ def build_home() -> None:
         'href="https://arxiv.org/abs/2511.08905" rel="noopener noreferrer" target="_blank"',
     )
     html = html.replace("https://www.siemens.com/us/en.html", LINKEDIN_LINK)
-    html = html.replace("https://akool.com/", GITHUB_LINK)
+    html = html.replace("https://akool.com/", XCLAW_SITE_LINK)
     html = html.replace("https://www.museumofflight.org/", WEBWEAVER_LINK)
     html = html.replace(
         '<link href="https://xiaoyanghu.com/" rel="canonical"/><meta content="https://xiaoyanghu.com/" property="og:url"/>',
